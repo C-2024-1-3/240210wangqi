@@ -4,14 +4,21 @@
 using namespace std;
 int main()
 {
-	int a;
+	float a, xn, xnp;
 	cin >> a;
-	int xn, xnp=0;
 	xn = a;
-	while(abs(xn-xnp)>1e-5)
+	if (a >= 0)
 	{
-		xnp = floor(xn + a / xn) / 2;
+		while (1)
+		{
+			xnp = (1.0 / 2) * (xn + (a / xn));
+			if (fabs(xnp - xn) < 0.00001)
+			{
+				cout << xnp;
+				break;
+			}
+			xn = xnp;
+		}
 	}
-	cout << xnp;
 	return 0;
 }
